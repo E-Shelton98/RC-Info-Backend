@@ -14,4 +14,4 @@ const rcCompanySchema = new Schema(
 const RC_Company = model('RC_Company', rcCompanySchema)
 
 //EXPORT MODEL
-module.exports = Dog
+module.exports = RC_Company

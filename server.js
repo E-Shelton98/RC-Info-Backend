@@ -36,11 +36,11 @@ app.get('/', (req, res) => {
 })
 
 // rcCompany and rcVehicle Router
-const rcCompanyRouter = require('./controllers/rcCompany.js')
+//const rcCompanyRouter = require('./controllers/rcCompany.js')
 const rcVehicleRouter = require('./controllers/rcVehicle')
 
 // rcCompany and rcVehicle Routes to send to respective router
-app.use('/rc_company', rcCompanyRouter)
+//app.use('/rc_company', rcCompanyRouter)
 app.use('/rc_vehicle', rcVehicleRouter)
 
 

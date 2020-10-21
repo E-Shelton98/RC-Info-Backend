@@ -5,7 +5,6 @@ const rcCompanySchema = new Schema(
     {
         name: String,
         yearEstablished: Number,
-        brandStatement: String,
         rcVehicles: [{ type: Schema.Types.ObjectId, ref: 'rcVehicle' }]
     }
 )

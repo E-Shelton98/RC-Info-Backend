@@ -36,12 +36,11 @@ app.get('/', (req, res) => {
 })
 
 // rcCompany and rcVehicle Router
-const rcCompanyRouter = require('./controllers/rcCompany.js')
-const rcVehicleRouter = require('./controllers/rcVehicle')
+const rc_API_Router = require('./controllers/rc_API')
 
 // rcCompany and rcVehicle Routes to send to respective router
-app.use('/rc_company', rcCompanyRouter)
-app.use('/rc_vehicle', rcVehicleRouter)
+app.use('/rc_api', rc_API_Router)
+
 
 
 //LISTENER

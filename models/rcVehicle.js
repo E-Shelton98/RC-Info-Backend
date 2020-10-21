@@ -1,21 +1,12 @@
 const { Schema, model } = require('mongoose')
+const mongoose = require('../db/connection')
 
 //RC_VEHICLE SCHEMA
 const rcVehicleSchema = new Schema(
     {
         name: String,
-        power_type: {
-            nitro: {
-                fuelAmount: String,
-                motorSize: String
-            },
-            electric: {
-                batteryType: String,
-                motorKvH: String
-            }
-        },
         img: String,
-
+        rcCompany: {type: mongoose.Types.ObjectId, ref: "rcCompany"}
     }
 )
 

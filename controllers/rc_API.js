@@ -4,6 +4,7 @@ const router = Router();
 const rc_Company = require('../models/rcCompany');
 const rc_Vehicle = require('../models/rcVehicle');
 const mongoose = require('mongoose');
+const RC_Vehicle = require('../models/rcVehicle');
 
 //CREATE A COMPANY
 router.post('/newCompany', async (req, res) => {
@@ -31,11 +32,22 @@ router.get('/vehicles', async (req, res) => {
 	res.json(await rc_Vehicle.find({}));
 });
 
+//Get a Company
+router.get('/:id', async (req, res) => {
+    res.json(await rc_Company.findById(req.params.id))
+})
+
+//Get a Vehicle
+router.get('/vehicles/:id', async (req, res) => {
+    res.json(await rc_Vehicle.findById(req.params.id))
+})
+
 //Delete Vehicle
 router.delete('/vehicles/:id', async (req, res) => {
 	res.json(await rc_Vehicle.findByIdAndDelete(req.params.id));
 });
 
+//Delete Company
 router.delete('/:id', async (req, res) => {
     res.json(await rc_Company.findByIdAndDelete(req.params.id))
 })
@@ -47,6 +59,11 @@ router.delete('/vehicles/:companyid/vehicleid', async (req, res) => {
 		company.rcVehicles.pop(vehicle._id);
 		company.save();
 		res.json(company);
+})
+
+//Update A Vehicle
+router.put('/vehicles/:id', async (req, res) => {
+    res.json(await RC_Vehicle.findByIdAndUpdate(req.params.id, req.body, {new: true}))
 })
 
 module.exports = router;
